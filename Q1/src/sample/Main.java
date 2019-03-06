@@ -1,5 +1,8 @@
 package sample;
-
+/* Author: Hassan Tariq
+   Course: CSCI 2020U
+   Question 1: Output 3 random cards
+ */
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -18,15 +21,17 @@ public class Main extends Application {
         int random2 = (int)(Math.random() * 54 + 1);
         int random3 = (int)(Math.random() * 54 + 1);
 
+        //create random file url to mimic random card assignment
         String url1 = "image/card/" + String.valueOf(random1) + ".png";
         String url2 = "image/card/" + String.valueOf(random2) + ".png";
         String url3 = "image/card/" + String.valueOf(random3) + ".png";
 
-
+        //create imageview of url previously created
         ImageView imageView1 = new ImageView(url1);
         ImageView imageView2 = new ImageView(url2);
         ImageView imageView3 = new ImageView(url3);
 
+        //add to gridpane
         pane.add(imageView1, 0, 0);
         pane.add(imageView2, 1, 0);
         pane.add(imageView3, 2, 0);

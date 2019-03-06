@@ -1,4 +1,9 @@
 package sample;
+/* Author: Hassan Tariq
+   Course: CSCI 2020U
+   Question 3: Dynamic triangle change with angles
+ */
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.shape.Polygon;

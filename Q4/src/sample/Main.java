@@ -1,4 +1,8 @@
 package sample;
+/* Author: Hassan Tariq
+   Course: CSCI 2020U
+   Question 4: Histogram of letter frequency
+ */
 
 import javafx.application.Application;
 import javafx.geometry.VPos;
@@ -20,22 +24,23 @@ import java.util.Scanner;
 public class Main extends Application{
     public void start(Stage primaryStage) {
 
-            // Create a scene and place it in the stage
+            //Create textfield and button
             TextField fileName = new TextField();
             Label labelFile = new Label("Filename: ", fileName);
             Button view = new Button("View");
 
             labelFile.setContentDisplay(ContentDisplay.RIGHT);
             fileName.setPrefColumnCount(20);
-
+            //add hbox to vbox to have separate non dynamic boxes
+            //so this hbox will not interfere with spacing of gridpane
             HBox hBox = new HBox(labelFile, view);
 
             VBox vBox = new VBox();
-
+            //create action event for inputting file name
             view.setOnAction(e-> {
                 java.io.File file = new java.io.File(fileName.getText());
+                //error check for file existence
                 if (file.exists()) {
-
                     System.out.println(readFile(file));
                     int[] count = count(readFile(file));
                     char[] chars = new char[26];
@@ -64,7 +69,7 @@ public class Main extends Application{
                     System.out.println("File does not exist!");
                 }
             });
-
+            //add all remaining boxes
             vBox.getChildren().add(hBox);
             Scene scene = new Scene(vBox, 400, 1000);
             primaryStage.setTitle("Q4"); // Set the stage title
@@ -75,7 +80,7 @@ public class Main extends Application{
     public static void main(String[] args) {
         launch(args);
     }
-
+    //readFile function that reads file and creates single string to count frequency
     public static String readFile(java.io.File file) {
 
         Scanner scanner;
@@ -95,6 +100,7 @@ public class Main extends Application{
 
     }
 
+    //count function that reads the single string created by readFile to get frequency
     public static int[] count (String s) {
         int count[] = new int[26];
         for (int i = 0; i < s.length(); i++) {
